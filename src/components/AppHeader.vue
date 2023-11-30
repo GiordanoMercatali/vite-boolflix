@@ -1,8 +1,10 @@
 <template lang="">
     <header>
-        <label for="search">Search...</label>
-        <input type="text" id="search" v-model="store.searchText"/>
-        <button @click="$emit('doSearch')" class="btn btn-primary">Search</button>
+        <div>
+            <!-- <label for="search">Search...</label> -->
+            <input type="text" id="search" v-model="store.searchText" placeholder="Type something here..." />
+            <button @click="$emit('doSearch')" class=" ms-1 btn btn-primary">Search</button>
+        </div>
     </header>
 </template>
 
