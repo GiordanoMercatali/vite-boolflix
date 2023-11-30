@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppHeader/>
     <!-- <AppHeader @do-search="search()"/> -->
   </div>
 </template>
@@ -7,7 +8,8 @@
 <script>
 import axios from 'axios';
 import {store} from './store.js';
-
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
 
 export default {
   components: {AppHeader},
@@ -40,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* @use "./style/general.scss"
-@import "@fontawesome/fontawesome-free/css/all.css" */
+@use "./style/general.scss";
+@import "@fortawesome/fontawesome-free/css/all.css";
   
 </style>
