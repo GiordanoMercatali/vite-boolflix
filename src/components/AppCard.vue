@@ -1,6 +1,6 @@
 <template>
     <div class="mb-4 text-center">
-        <img :src="this.poster" alt="" />
+            <img :src="getPoster(movie.poster_path)" class="poster-image" />
                 <h3>{{ "Title: " + movie.title }}</h3>
                 <h4>{{ "OG Title: " + movie.original_title }}</h4>
                 <p>{{ "Lang: "}}
@@ -13,6 +13,7 @@
 
 <script>
 import axios from 'axios';
+import {store} from '../store';
 
 export default {
   props: {
@@ -21,18 +22,19 @@ export default {
 
   data(){
     return{
+        store,
         flags: ["it", "en",]
     };
   },
 
   methods: {
-         getPoster(){
-             poster = this.store.posterUrl + movie.poster_path;
-             console.log(poster);
-         },
-            getLanguageFlag(language){
+        getPoster(posterPath){
+             return this.store.posterUrl + posterPath;
+        },
+        
+        getLanguageFlag(language){
                 return new URL(`./images/${language}.png`, import.meta.url).href;
-            },
+        },
     },
 
     computed:{
@@ -45,6 +47,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .poster-image{
+        width: 128px;
+    }
     .lang-icon{
         width: 32px;
         position: relative;
