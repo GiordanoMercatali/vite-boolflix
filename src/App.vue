@@ -1,13 +1,14 @@
-<template lang="">
+<template>
   <div>
-    
+    <!-- <AppHeader @do-search="search()"/> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import {store} from './store.js';
-// console.log(store);
+
+
 export default {
   components: {AppHeader},
   data(){
@@ -16,12 +17,24 @@ export default {
     };
   },
   methods: {
-    getMovies(){
-      axios.get(this.store.moviesUrl + '?api_key=' + this.store.apiKey + '&query=' + this.store.searchText)
+    search(){
+      axios.get(this.store.baseUrl + '/search/movie?api_key=' + this.store.apiKey + '&query=' + this.store.searchText)
       .then(resp => {
         this.store.moviesArray = resp.data.results
-      })
-    }
+      });
+
+      axios.get(this.store.baseUrl + '/search/tv?api_key=' + this.store.apiKey + '&query=' + this.store.searchText)
+      .then(resp => {
+        this.store.moviesArray = resp.data.results
+      });
+    },
+
+    // getTVShows(){
+    //   axios.get(this.store.baseUrl + '/search/tv?api_key=' + this.store.apiKey + '&query=' + this.store.searchText)
+    //   .then(resp => {
+    //     this.store.moviesArray = resp.data.results
+    //   })
+    // },
   }
 }
 </script>
