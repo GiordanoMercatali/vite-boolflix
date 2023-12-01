@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="container">
+        <div class="container pt-5">
             <div class="row">
                 <div class="col-4" v-for="movie in store.moviesArray">
                     <AppCard :movie="movie" />
@@ -34,5 +34,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    main{
+        height: 95vh;
+        background-color: #141414;
+        overflow-y: auto;
+    }
+
+    .container{
+        [class^="col"]{
+            border: 1px solid red;
+            border-radius: 20px;
+        }
+    }
     
 </style>

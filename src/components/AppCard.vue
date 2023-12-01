@@ -1,7 +1,14 @@
 <template>
-    <div class="mb-4 text-center">
-            <img v-if="movie.poster_path" :src="getPoster(movie.poster_path)" class="poster-image" />
-            <img v-else src="https://i0.wp.com/capri.org.au/wp-content/uploads/2017/10/poster-placeholder.jpg?ssl=1" class="poster-image">
+    <div class="m-4 text-center">
+            <div class="hover-area">
+                <div class="info-tab">
+                    <h5>{{ movie.title }}</h5>
+                    <p>{{ movie.overview.slice(0, 50) + "..." }}</p>
+                </div>
+                <img v-if="movie.poster_path" :src="getPoster(movie.poster_path)" class="poster-image" />
+                <img v-else src="https://i0.wp.com/capri.org.au/wp-content/uploads/2017/10/poster-placeholder.jpg?ssl=1" class="poster-image">
+            </div>
+            
                 <h3 v-if="movie.title">{{ "Title: " + movie.title }}</h3>
                 <h3 v-else>{{ "Title: " + movie.name }}</h3>
                 <h4 v-if="movie.title">{{ "OG Title: " + movie.original_title }}</h4>
@@ -59,9 +66,32 @@ export default {
 
 <style lang="scss" scoped>
 
+    .hover-area{
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        &:hover{
+            .info-tab{
+                display: inline-block;
+            }
+
+            .poster-image{
+                display: none;
+            }
+        }
+    }
+
+    .info-tab{
+        background-color: rgba($color: #000000, $alpha: 1.0);
+        width: 128px;
+        height: 192px;
+        display: none;
+    }
     .poster-image{
         width: 128px;
         height: 192px;
+        border: 2px solid white;
     }
     .lang-icon{
         width: 32px;
