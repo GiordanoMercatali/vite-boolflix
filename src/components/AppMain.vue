@@ -1,20 +1,17 @@
-<template lang="">
+<template>
     <main>
-        <section>
-            <div v-for="movie in store.moviesArray">
-                <AppCard :movie="movie" />
-                <!-- <h3>{{ movie.title }}</h3>
-                <h4>{{ movie.original_title }}</h4>
-                <p>{{ movie.original_country }}</p>
-                <p>{{ movie.vote_average }}</p> -->
-                
-            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col" v-for="movie in store.moviesArray">
+                    <AppCard :movie="movie" />
+                </div>
 
-            <div v-for="tvshow in store.tvshowsArray">
-                <AppCard :tvshow="tvshow" />
-            </div>
+                <div class="col" v-for="tvshow in store.tvshowsArray">
+                    <AppCard :movie="tvshow" />
+                </div>
 
-        </section>
+            </div>
+        </div>
     </main>
 </template>
 
