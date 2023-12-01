@@ -2,11 +2,11 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col" v-for="movie in store.moviesArray">
+                <div class="col-4" v-for="movie in store.moviesArray">
                     <AppCard :movie="movie" />
                 </div>
 
-                <div class="col" v-for="tvshow in store.tvshowsArray">
+                <div class="col-4" v-for="tvshow in store.tvshowsArray">
                     <AppCard :movie="tvshow" />
                 </div>
 

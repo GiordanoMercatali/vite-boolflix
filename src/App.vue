@@ -1,5 +1,4 @@
 <template>
-  
     <AppHeader @doSearch="search()"/>
     <AppMain />
 
@@ -39,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "./style/general.scss";
 @import "@fortawesome/fontawesome-free/css/all.css";
   
