@@ -1,6 +1,7 @@
 <template>
     <div class="mb-4 text-center">
-            <img :src="getPoster(movie.poster_path)" class="poster-image" />
+            <img v-if="movie.poster_path" :src="getPoster(movie.poster_path)" class="poster-image" />
+            <img v-else src="https://i0.wp.com/capri.org.au/wp-content/uploads/2017/10/poster-placeholder.jpg?ssl=1" class="poster-image">
                 <h3>{{ "Title: " + movie.title }}</h3>
                 <h4>{{ "OG Title: " + movie.original_title }}</h4>
                 <p>{{ "Lang: "}}
