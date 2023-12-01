@@ -2,28 +2,25 @@
     <div class="m-4 text-center">
             <div class="hover-area">
                 <div class="info-tab">
-                    <h5>{{ movie.title }}</h5>
+                    <h3 v-if="movie.title">{{ "Title: " + movie.title }}</h3>
+                    <h3 v-else>{{ "Title: " + movie.name }}</h3>
+                    <h4 v-if="movie.title">{{ "OG Title: " + movie.original_title }}</h4>
+                    <h4 v-else>{{ "OG Title: " + movie.original_name }}</h4>
                     <p>{{ movie.overview.slice(0, 50) + "..." }}</p>
-                    <p>
+                    <p>{{ "Rating: "}}
                     <span> <i v-for="star in getStars(movie.vote_average)" class="fa-solid fa-star"></i> </span>
                     <span> <i v-for="star in (5 - getStars(movie.vote_average))" class="fa-regular fa-star"></i> </span>
-                    </p>
+                </p>
                 </div>
                 <img v-if="movie.poster_path" :src="getPoster(movie.poster_path)" class="poster-image" />
                 <img v-else src="https://i0.wp.com/capri.org.au/wp-content/uploads/2017/10/poster-placeholder.jpg?ssl=1" class="poster-image">
             </div>
             
-                <h3 v-if="movie.title">{{ "Title: " + movie.title }}</h3>
-                <h3 v-else>{{ "Title: " + movie.name }}</h3>
-                <h4 v-if="movie.title">{{ "OG Title: " + movie.original_title }}</h4>
-                <h4 v-else>{{ "OG Title: " + movie.original_name }}</h4>
+                
+                
                 <p>{{ "Lang: "}}
                     <span v-if="hasFlag"><img class="lang-icon" :src="getLanguageFlag(movie.original_language)"></span>
                     <span v-else>{{ movie.original_language }}</span>
-                </p>
-                <p>{{ "Rating: "}}
-                    <span> <i v-for="star in getStars(movie.vote_average)" class="fa-solid fa-star"></i> </span>
-                    <span> <i v-for="star in (5 - getStars(movie.vote_average))" class="fa-regular fa-star"></i> </span>
                 </p>
     </div>
 </template>
@@ -88,14 +85,17 @@ export default {
 
     .info-tab{
         background-color: rgba($color: #000000, $alpha: 1.0);
-        width: 128px;
-        height: 192px;
+        width: 256px;
+        height: 384px;
         display: none;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
     }
     .poster-image{
-        width: 128px;
-        height: 192px;
+        width: 256px;
+        height: 384px;
         border: 2px solid white;
+        margin-bottom: 1rem;
     }
     .lang-icon{
         width: 32px;

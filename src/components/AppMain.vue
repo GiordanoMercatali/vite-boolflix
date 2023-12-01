@@ -43,7 +43,7 @@ export default {
 
     .container{
         [class^="col"]{
-            border: 1px solid red;
+            // border: 1px solid red;
             border-radius: 20px;
         }
     }
