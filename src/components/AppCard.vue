@@ -4,6 +4,10 @@
                 <div class="info-tab">
                     <h5>{{ movie.title }}</h5>
                     <p>{{ movie.overview.slice(0, 50) + "..." }}</p>
+                    <p>
+                    <span> <i v-for="star in getStars(movie.vote_average)" class="fa-solid fa-star"></i> </span>
+                    <span> <i v-for="star in (5 - getStars(movie.vote_average))" class="fa-regular fa-star"></i> </span>
+                    </p>
                 </div>
                 <img v-if="movie.poster_path" :src="getPoster(movie.poster_path)" class="poster-image" />
                 <img v-else src="https://i0.wp.com/capri.org.au/wp-content/uploads/2017/10/poster-placeholder.jpg?ssl=1" class="poster-image">
