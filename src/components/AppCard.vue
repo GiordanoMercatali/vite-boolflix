@@ -59,17 +59,11 @@ export default {
 
 <style lang="scss" scoped>
 
-    i{
-        min-height: 1px;
-    }
-
     .poster-image{
         width: 128px;
+        height: 192px;
     }
     .lang-icon{
         width: 32px;
-        // position: relative;
-        // top: 10px;
-        // left: 0;
     }
 </style>
