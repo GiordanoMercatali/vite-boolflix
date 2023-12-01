@@ -25,7 +25,7 @@ export default {
       axios.get(this.store.baseUrl + '/search/movie?api_key=' + this.store.apiKey + '&query=' + this.store.searchText)
       .then(resp => {
         this.store.moviesArray = resp.data.results
-        console.log(this.store.moviesArray)
+        // console.log(this.store.moviesArray)
       });
 
       axios.get(this.store.baseUrl + '/search/tv?api_key=' + this.store.apiKey + '&query=' + this.store.searchText)

@@ -2,8 +2,10 @@
     <div class="mb-4 text-center">
             <img v-if="movie.poster_path" :src="getPoster(movie.poster_path)" class="poster-image" />
             <img v-else src="https://i0.wp.com/capri.org.au/wp-content/uploads/2017/10/poster-placeholder.jpg?ssl=1" class="poster-image">
-                <h3>{{ "Title: " + movie.title }}</h3>
-                <h4>{{ "OG Title: " + movie.original_title }}</h4>
+                <h3 v-if="movie.title">{{ "Title: " + movie.title }}</h3>
+                <h3 v-else>{{ "Title: " + movie.name }}</h3>
+                <h4 v-if="movie.title">{{ "OG Title: " + movie.original_title }}</h4>
+                <h4 v-else>{{ "OG Title: " + movie.original_name }}</h4>
                 <p>{{ "Lang: "}}
                     <span v-if="hasFlag"><img class="lang-icon" :src="getLanguageFlag(movie.original_language)"></span>
                     <span v-else>{{ movie.original_language }}</span>
@@ -41,7 +43,7 @@ export default {
         },
 
         getStars(rate){ //
-            console.log(Math.ceil(rate / 2));
+            // console.log(Math.ceil(rate / 2));
             return Math.ceil(rate / 2);
         }
     },
